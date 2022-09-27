@@ -28,10 +28,6 @@ const AppMainStyles = createUseStyles({
     flexDirection: 'row',
     flexWrap: 'wrap',
     overflow: 'auto',
-
-    '& article': {
-      maxWidth: '24%',
-    },
   },
   footer: {
     borderTop: 'solid 0.124rem #cacaca',
@@ -80,6 +76,7 @@ const AppMainStyles = createUseStyles({
       marginTop: '6rem',
 
       '& article': {
+        maxWidth: '24%',
         flex: '1 0 21%',
       },
     },

@@ -32,6 +32,10 @@ const Filter = ({ data, onFilter }: filterProps) => {
     onFilter({ label: e.target.name, status: e.target.checked })
   }
 
+  const clearSearch = () => {
+    onFilter({})
+  }
+
   return (
     <div className={classes.searchContainer}>
       <input
@@ -43,14 +47,11 @@ const Filter = ({ data, onFilter }: filterProps) => {
         className={classes.searchList}
         style={{ display: `${!showResults ? 'none' : ''}` }}
       >
-        <a
-          style={{ fontSize: '.6rem', textAlign: 'center', color: 'grey' }}
-          onClick={() => onFilter({})}
-        >
+        <a className={classes.searchClear} onClick={clearSearch}>
           clear current selection
         </a>
         {filteredData.length === 0 && (
-          <p style={{ fontSize: '.6rem', color: 'red' }}>
+          <p className={classes.searchError}>
             <span>
               <RiErrorWarningFill />
             </span>

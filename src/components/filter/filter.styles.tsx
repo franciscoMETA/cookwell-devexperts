@@ -40,6 +40,15 @@ const filterStyles = createUseStyles({
       },
     },
   },
+  searchClear: {
+    fontSize: '.6rem',
+    textAlign: 'center',
+    color: 'grey',
+  },
+  searchError: {
+    fontSize: '.6rem',
+    color: 'red',
+  },
 })
 
 export default filterStyles
