@@ -23,12 +23,11 @@ function App() {
   })
   const [isLoading, setIsLoading] = useState<Boolean>(true)
   const [isOpen, setIsOpen] = useState<Boolean>(false)
+  const [recipes, setRecipes] = useState<Recipe[]>([])
   const [filteredRecipes, setFilteredRecipes] = useState<Recipe[]>([])
   const [ingredients, setIngredients] = useState<FilterData[]>([])
   const [preparationMethod, setPreparationMethod] = useState<any>()
   const classes = AppMainStyles()
-
-  let recipes: Recipe[] = []
   let recipesFiltered: Recipe[] = []
 
   const openModalHandler = (
@@ -51,6 +50,7 @@ function App() {
 
   const onFilterHandler = (filter: any) => {
     console.log(filter)
+    console.log(Object.keys(filter).length === 0)
 
     if (Object.keys(filter).length === 0) {
       setFilteredRecipes(recipes)
@@ -83,8 +83,8 @@ function App() {
         if (response.status !== 200) {
           throw Error
         }
-        recipes = response.data.record.recipes
-        setFilteredRecipes(recipes)
+        setRecipes(response.data.record.recipes)
+        setFilteredRecipes(response.data.record.recipes)
         setIngredients(response.data.record.ingredients)
         setIsLoading(false)
       } catch (error: any) {
